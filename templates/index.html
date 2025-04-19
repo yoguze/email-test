@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>お問い合わせフォーム</title>
+</head>
+<body>
+  <h1>お問い合わせ</h1>
+  <form method="post">
+    お名前: <input type="text" name="name"><br>
+    メールアドレス: <input type="email" name="email"><br>
+    お問い合わせ内容: <textarea name="message"></textarea><br>
+    <input type="submit" value="送信">
+  </form>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
